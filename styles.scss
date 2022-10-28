@@ -113,6 +113,7 @@ body{
 }
 
 
+
 .card-1{
     min-height: 500px;
 }
@@ -129,6 +130,42 @@ body{
     margin-bottom: 32px;
 }
 
+@mixin bg-blue-color{
+    background: linear-gradient(45deg, rgb(0, 207, 232) 0%, rgb(28, 231, 255) 100%);
+}
+
+@mixin bg-orange-color{
+    background: linear-gradient(41.83deg, rgb(255, 146, 42) 2.18%, rgb(255, 185, 118) 97.5%);
+}
+
+.bg-blue{
+    @include bg-blue-color;
+}
+.bg-orange{
+    @include bg-orange-color;
+}
+
+
+.bg-red{
+    background: linear-gradient(43.96deg, rgb(234, 84, 85) 2.91%, rgb(240, 129, 130) 94.71%);
+}
+
+.bg-blue-bold{
+    background: linear-gradient(45deg, rgb(34, 127, 244) 0%, rgb(75, 151, 246) 100%);
+}
+
+.bg-green{
+    background: linear-gradient(45.79deg, rgb(40, 199, 111) 0%, rgb(72, 218, 137) 94.75%, rgb(72, 218, 137) 94.75%);
+}
+
+.bg-orange{
+    background: linear-gradient(41.83deg, rgb(255, 146, 42) 2.18%, rgb(255, 185, 118) 97.5%);
+}
+
+.bg-gray{
+    background: linear-gradient(41.83deg, rgba(132, 132, 231, 0.986) 2.18%, rgb(240, 222, 206) 97.5%);
+}
+
 h4 {
     font-size: 20px;
     font-weight: 400;
@@ -141,6 +178,21 @@ h6 {
     font-weight: 200;
 }
 
+.book-circle{
+    position: relative;
+    margin-right:10px;
+    width:24px;
+    height:24px;
+    @include bg-orange-color; 
+    i{
+        font-size:12px;
+        color:white;
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+    }
+}
 
 .filter-range-time{
     list-style-type: none;
@@ -167,87 +219,6 @@ h6 {
     }
 }
 
-:root {
-    --radial-progress-bar-size: 2rem;
-    --radial-progress-bar-border-width: 0.2rem;
-}
-
-.radial-progress-bar {
-    position: relative;
-    height: var(--radial-progress-bar-size);
-    width: var(--radial-progress-bar-size);
-}
-
-.radial-progress-bar__percentages {
-    /* Center the content */
-    align-items: center;
-    display: flex;
-    justify-content: center;
-
-    /* Rounded border */
-    border: var(--radial-progress-bar-border-width) solid #d1d5db;
-    border-radius: 9999px;
-
-    /* Size */
-    height: 100%;
-    width: 100%;
-}
-
-.radial-progress-bar__curve {
-    /* Position */
-    left: 0;
-    position: absolute;
-    top: 0;
-
-    /* Take full size */
-    height: 100%;
-    width: 100%;
-
-    /* If percentages is less than 50 */
-    /* clip: rect(
-        0px,
-        var(--radial-progress-bar-size),
-        var(--radial-progress-bar-size),
-        calc(var(--radial-progress-bar-size) * 0.5),
-        0px
-    ); */
-
-    /* If percentages is greater than or equals to 50 */
-    clip: rect(auto, auto, auto, auto);
-}
-
-.radial-progress-bar__half {
-    /* Take full size */
-    height: 100%;
-    position: absolute;
-    width: 100%;
-
-    /*
-    Background color of curve.
-    The border width should be the same as the area showing the percentages
-    */
-    border: var(--radial-progress-bar-border-width) solid #3b82f6;
-    border-radius: 9999px;
-}
-
-.radial-progress-bar__half--first {
-    /* Position */
-    clip: rect(0px, calc(var(--radial-progress-bar-size) * 0.5), var(--radial-progress-bar-size), 0px);
-
-    /* Number of percentages * 360 / 100 */
-    transform: rotate(270deg);
-}
-
-.radial-progress-bar__half--second {
-    /* Position */
-    clip: rect(0px, calc(var(--radial-progress-bar-size) * 0.5), var(--radial-progress-bar-size), 0px);
-
-    /* If percentages is less than 50 */
-    /* transform: rotate(0deg); */
-
-    /* If percentages is greater than or equals to 50 */
-    transform: rotate(180deg);
-}
 
 .course-learning{
     ul{
@@ -358,33 +329,6 @@ h6 {
 
 }
 
-.bg-blue{
-    color: rgb(255, 255, 255);
-    background: linear-gradient(45deg, rgb(0, 207, 232) 0%, rgb(28, 231, 255) 100%);
-}
-.bg-red{
-    color: rgb(255, 255, 255);
-    background: linear-gradient(43.96deg, rgb(234, 84, 85) 2.91%, rgb(240, 129, 130) 94.71%);
-}
-
-.bg-blue-bold{
-    color: rgb(255, 255, 255);
-    background: linear-gradient(45deg, rgb(34, 127, 244) 0%, rgb(75, 151, 246) 100%);
-}
-
-.bg-green{
-    color: rgb(255, 255, 255);
-    background: linear-gradient(45.79deg, rgb(40, 199, 111) 0%, rgb(72, 218, 137) 94.75%, rgb(72, 218, 137) 94.75%);
-}
-
-.bg-orange{
-    background: linear-gradient(41.83deg, rgb(255, 146, 42) 2.18%, rgb(255, 185, 118) 97.5%);
-}
-
-.bg-gray{
-    background: linear-gradient(41.83deg, rgba(132, 132, 231, 0.986) 2.18%, rgb(240, 222, 206) 97.5%);
-}
-
 .icon-card{
     width:46px;
     height:46px;
@@ -397,6 +341,7 @@ h6 {
         font-size:24px;
     }
 }
+
 .total{
     margin-left:20px;
     font-size:24px;
@@ -485,5 +430,17 @@ h6 {
     }
     .rate{
         width: 40px;
+    }
+}
+
+//my course
+.list-course{
+    .card_course-item{
+        padding:20px;
+    }
+    .list-course-item{
+        border:1px solid #e0e0e0;
+        height:320px;
+        @include bg-blue-color;
     }
 }
